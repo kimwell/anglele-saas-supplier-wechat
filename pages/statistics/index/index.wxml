@@ -1,0 +1,26 @@
+<view>
+  <view class='cell-info-main'>
+    <i-cell-group>
+      <i-cell title="交易汇总" is-link url="/pages/statistics/transactionData/index">
+        <view slot="icon">
+          <view class='iconfont icon-jiaoyi'></view>
+        </view>
+      </i-cell>
+      <i-cell title="库存报表" is-link url="/pages/statistics/stockData/index">
+        <view slot="icon">
+          <view class='iconfont icon-kucun'></view>
+        </view>
+      </i-cell>
+      <i-cell title="销售报表" is-link url="/pages/statistics/saleData/index">
+        <view slot="icon">
+          <view class='iconfont icon-xiaoshouguanli'></view>
+        </view>
+      </i-cell>
+      <i-cell title="利润报表" is-link url="/pages/statistics/profitData/index">
+        <view slot="icon">
+          <view class='iconfont icon-lirun2'></view>
+        </view>
+      </i-cell>
+    </i-cell-group>
+  </view>
+</view>

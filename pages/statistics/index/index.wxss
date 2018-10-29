@@ -1,0 +1,18 @@
+page{
+  background-color: #F5F5F5;
+}
+.cell-info-main{
+  margin: 20rpx 0;
+}
+.icon-jiaoyi{
+  color: #48CFCF
+}
+.icon-kucun{
+  color: #FFA53B
+}
+.icon-xiaoshouguanli{
+  color: #19B0FF
+}
+.icon-lirun2{
+  color: #FF5959;
+}

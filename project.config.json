@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx51ccf947697040d8",
-	"projectname": "anglele-saas-wechat",
+	"projectname": "anglele-saas-supplier-wechat",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

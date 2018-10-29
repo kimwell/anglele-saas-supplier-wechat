@@ -1,17 +1,13 @@
 {
   "pages": [
+    "pages/statistics/index/index",
     "pages/index/index",
-    "pages/user/settlement/index",
-    "pages/order/orderSuccess/index",
-    "pages/order/submitOrder/index",
     "pages/login/index",
-    "pages/order/index/index",
     "pages/user/index/index",
-    "pages/user/userInfo/index",
-    "pages/user/bUserInfo/index",
-    "pages/user/setting/index",
-    "pages/user/modifyPassword/index",
-    "pages/order/detail/index"
+    "pages/statistics/transactionData/index",
+    "pages/statistics/stockData/index",
+    "pages/statistics/saleData/index",
+    "pages/statistics/profitData/index"
   ],
   "window": {
     "backgroundTextStyle": "#fff",
@@ -34,8 +30,8 @@
         "selectedIconPath": "./static/images/index-tab-icon-selected.png"
       },
       {
-        "pagePath": "pages/order/index/index",
-        "text": "订单",
+        "pagePath": "pages/statistics/index/index",
+        "text": "统计报表",
         "iconPath": "./static/images/order-tab-icon.png",
         "selectedIconPath": "./static/images/order-tab-icon-selected.png"
       },
