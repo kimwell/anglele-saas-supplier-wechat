@@ -76,7 +76,9 @@ Page({
     var types = e.currentTarget.dataset.type;
     var item = e.currentTarget.dataset.item;
     if (types === 'detail') {
-
+      wx.navigateTo({
+        url: '/pages/common/outDetail/index?id=' + item.id,
+      })
     } else if (types === 'order') {
       wx.showModal({
         title: '确认订单',
