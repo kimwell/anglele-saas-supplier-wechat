@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/statistics/index/index",
     "pages/statistics/saleData/index",
-    "pages/index/index",
     "pages/user/index/index",
     "pages/statistics/stockData/index",
     "pages/login/index",

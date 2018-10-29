@@ -1,5 +1,5 @@
 <view class="index-view">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="#23D5C0">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="#23D5C0" current="1">
     <swiper-item>
       <view class='swiper-item'>
         <view class='items'>
@@ -17,12 +17,12 @@
         <view class='items'>
           <view class='item'>
             <image  class='index-img3' src="../../static/images/index-img3.png"></image>
-            <view class='num'>￥{{todayItem.customerNum}}</view>
+            <view class='num'>{{todayItem.customerNum}}</view>
             <view class='desc'>下单客户数</view>
           </view>
           <view class='item'>
             <image  class='index-img4' src="../../static/images/index-img4.png"></image>
-            <view class='num'>￥{{todayItem.orderNum}}</view>
+            <view class='num'>{{todayItem.orderNum}}</view>
             <view class='desc'>下单总数</view>
           </view>
         </view>
