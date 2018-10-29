@@ -1,3 +1,7 @@
 {
+  "usingComponents": {
+    "i-drawer": "../../../components/drawer/index",
+    "i-load-more": "../../../components/load-more/index"
+  },
   "navigationBarTitleText": "库存报表"
 }

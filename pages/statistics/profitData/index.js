@@ -1,66 +1,62 @@
 // pages/statistics/profitData/index.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    pageApi: {
+      orderId: '',
+      customerName: '',
+      createOrderTimeBegin: '',
+      createOrderTimeEnd: '',
+      sellPriceBegin: '',
+      sellPriceEnd: '',
+      profitBegin: '',
+      profitEnd: '',
+      pageIndex: 0,
+      pageSize: 10
+    },
+    list: [],
+    loading: true,
+    show: false,
+    loadingOver: false 
   },
-
+  getList() {
+    let that = this;
+    if (!that.data.loading) return;
+    that.setData({
+      'pageApi.pageIndex': that.data.pageApi.pageIndex + 1
+    })
+    app.api.orderProfit(this.data.pageApi).then(res => {
+      if (res.code === 1000) {
+        res.data.page.data.forEach(el => {
+          el.ctime = app.utils.dateformat(el.newOrderDate,'yyyy-MM-dd');
+        })
+        if (res.data.page.data.length < that.data.pageApi.pageSize) {
+          that.setData({
+            loading: false,
+            loadingOver: true
+          })
+        }
+        that.setData({
+          list: that.data.list.concat(res.data.page.data)
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getList();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    if (this.data.loading) this.getList();
   }
+
 })

@@ -1,1 +1,47 @@
-/* pages/statistics/profitData/index.wxss */
+page {
+  background-color: #f5f5f5;
+}
+
+.profit {
+  padding: 0 40rpx;
+}
+
+.profit-list {
+  position: relative;
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 24rpx;
+}
+.order-header{
+  font-size: 32rpx;
+  color: #333;
+}
+.order-time{
+  float: right;
+  font-size: 26rpx;
+  color: #666;
+}
+.order-time .iconfont{
+  color: #FFA53B;
+  margin-right: 5rpx;
+}
+.profit-main{
+  display: flex;
+  margin-top: 20rpx;
+}
+.profit-main-cell{
+  flex: 1;
+  text-align: center;
+}
+.profit-main-cell .title{
+  font-size: 24rpx;
+  color: #666;
+}
+.profit-main-cell .main{
+  font-size: 28rpx;
+  color: #FFA53B;
+  margin-top: 20rpx;
+}

@@ -1,1 +1,6 @@
-/* pages/statistics/transactionData/index.wxss */
+page{
+  background-color: #F5F5F5;
+}
+.cell-info-main{
+  margin-top: 20rpx;
+}

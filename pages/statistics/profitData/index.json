@@ -1,3 +1,6 @@
 {
+  "usingComponents": {
+    "i-load-more": "../../../components/load-more/index"
+  },
   "navigationBarTitleText": "利润报表"
 }

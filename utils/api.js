@@ -28,80 +28,47 @@ export const findCurrentUser = () => {
   return fetchApi('auth/baseuser/findCurrentUser').then(res => res.data)
 }
 
+
 /**
- * 查询商户所有上架产品
+ * 交易汇总
  * 
  */
-export const findAllProduct = (params) => {
-  return fetchApi('sys/product/findAllProduct', params).then(res => res.data)
+export const summaryStatistics = (params) => {
+  return fetchApi('sys/dataStatistics/summaryStatistics', params).then(res => res.data)
 }
 
 /**
- * 订单分页-移动端
+ * 货品库存管理
  * 
  */
-export const orderPage = (params) => {
-  return fetchApi('api/order/page', params).then(res => res.data)
-}
 
-
-/**
- * 取消订单
- * 
- */
-export const orderCancel = (params) => {
-  return fetchApi('sys/order/cancel', params).then(res => res.data)
+export const productWareHouse = (params) => {
+  return fetchApi('sys/dataStatistics/productWareHouse', params).then(res => res.data)
 }
 
 
 /**
- * 单个订单-移动端
+ * 销售利润报表
  * 
  */
-export const findOneOrder = (params) => {
-  return fetchApi('api/order/findOneOrder', params).then(res => res.data)
+
+export const orderProfit = (params) => {
+  return fetchApi('sys/dataStatistics/orderProfit', params).then(res => res.data)
+}
+/**
+ * 今日订单汇总
+ * 
+ */
+
+export const todayOrderSummary = () => {
+  return fetchApi('sys/dataStatistics/todayOrderSummary').then(res => res.data)
 }
 
-
 /**
- * 复制订单-移动端
+ * 产品销售汇总
  * 
  */
-export const copyOrder = (params) => {
-  return fetchApi('api/order/copyOrder', params).then(res => res.data)
-}
 
-/**
- * 修改密码
- * 
- */
-export const changePass = (params) => {
-  return fetchApi('api/changePass', params).then(res => res.data)
-}
-
-
-/**
- * 结算列表
- * 
- */
-export const settlementPage = (params) => {
-  return fetchApi('api/order/settlementPageChange', params).then(res => res.data)
-}
-
-
-/**
- * 结算列表
- * 
- */
-export const saveOwnOrder = (params) => {
-  return fetchApi('api/order/saveOwnOrder', params).then(res => res.data)
-}
-
-
-/**
- * 是否能够下单
- * 
- */
-export const isOrder = () => {
-  return fetchApi('api/order/isOrder').then(res => res.data)
+export const productSummary = (params) => {
+  return fetchApi('sys/dataStatistics/productSummary', params).then(res => res.data)
 }

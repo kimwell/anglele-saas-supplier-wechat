@@ -17,7 +17,7 @@ Page({
       let params = {
         userName: user,
         password: util.hexMD5(password),
-        roleCode: 'CUSTOMER'
+        roleCode: 'ADMIN'
       }
       app.api.login(params).then(res => {
         if (res.code === 1000) {

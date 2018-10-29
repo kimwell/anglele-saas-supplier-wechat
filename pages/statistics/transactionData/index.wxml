@@ -1,2 +1,56 @@
-<!--pages/statistics/transactionData/index.wxml-->
-<text>pages/statistics/transactionData/index.wxml</text>
+<view>
+  <view class='cell-info-main'>
+    <i-cell-group>
+      <i-cell title="销售单总数">
+        <view slot="footer">{{item.orderNum}}</view>
+      </i-cell>
+      <i-cell title="销售单总金额">
+        <view slot="footer">￥{{item.saleAmount}}</view>
+      </i-cell>
+      <i-cell title="销售单总成本">
+        <view slot="footer">￥{{item.costAmount}}</view>
+      </i-cell>
+      <i-cell title="销售单总利润">
+        <view slot="footer">￥{{item.profitAmount}}</view>
+      </i-cell>
+      <i-cell title="损耗金额">
+        <view slot="footer">￥{{item.wastageAmount}}</view>
+      </i-cell>
+    </i-cell-group>
+  </view>
+  <view class='cell-info-main'>
+    <i-cell-group>
+      <i-cell title="有效订单数">
+        <view slot="footer">{{item.effectiveNum}}</view>
+      </i-cell>
+      <i-cell title="有效订单金额">
+        <view slot="footer">￥{{item.effectiveAmount}}</view>
+      </i-cell>
+      <i-cell title="未结算订单金额">
+        <view slot="footer">￥{{item.unSettleAmount}}</view>
+      </i-cell>
+      <i-cell title="已结算订单金额">
+        <view slot="footer">￥{{item.settleAmount}}</view>
+      </i-cell>
+      <i-cell title="无效订单金额">
+        <view slot="footer">￥{{item.cancelAmount}}</view>
+      </i-cell>
+    </i-cell-group>
+  </view>
+  <view class='cell-info-main'>
+    <i-cell-group>
+      <i-cell title="成交订单数">
+        <view slot="footer">{{item.dealNum}}</view>
+      </i-cell>
+      <i-cell title="取消订单数">
+        <view slot="footer">{{item.cancelNum}}</view>
+      </i-cell>
+      <i-cell title="成交率">
+        <view slot="footer">{{item.dealRate}}%</view>
+      </i-cell>
+      <i-cell title="取消率">
+        <view slot="footer">{{item.cancelRate}}%</view>
+      </i-cell>
+    </i-cell-group>
+  </view>
+</view>

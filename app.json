@@ -1,13 +1,15 @@
 {
   "pages": [
     "pages/statistics/index/index",
-    "pages/index/index",
-    "pages/login/index",
-    "pages/user/index/index",
-    "pages/statistics/transactionData/index",
-    "pages/statistics/stockData/index",
     "pages/statistics/saleData/index",
-    "pages/statistics/profitData/index"
+    "pages/index/index",
+    "pages/user/index/index",
+    "pages/statistics/stockData/index",
+    "pages/login/index",
+    "pages/statistics/transactionData/index",
+    "pages/statistics/profitData/index",
+    "pages/user/setting/index",
+    "pages/user/modifyPassword/index"
   ],
   "window": {
     "backgroundTextStyle": "#fff",

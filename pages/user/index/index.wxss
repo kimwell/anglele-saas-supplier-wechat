@@ -12,3 +12,12 @@ page {
   height: 40rpx;
   vertical-align: middle;
 }
+.icon-user{
+  color: #48CFCF
+}
+.icon-name{
+  color: #FFA53B
+}
+.icon-dizhi1,.icon-icon-validate{
+  color: #19B0FF
+}

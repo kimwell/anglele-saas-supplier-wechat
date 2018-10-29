@@ -1,2 +1,36 @@
-<!--pages/statistics/stockData/index.wxml-->
-<text>pages/statistics/stockData/index.wxml</text>
+<view class="stock">
+  <view class='stock-list' wx:for="{{list}}" wx:key="index">
+    <view class='product-name'><view class='detail-stock' bindtap='showDetail' data-item="{{item}}">查看库存</view>{{item.productName}}/{{item.categoryName}}</view>
+    <view class='product-main'>
+      <view class='product-img'>
+        <image src="{{item.img != '' ? item.img : '../../../static/images/product-no-img.png'}}"></image>
+      </view>
+      <view class='product-info'>
+        <view>库存:{{item.total}}{{item.unit}}</view>
+        <view class='warnNum'>预警值:{{item. warnNum}}</view>
+        <view>下单未确认:{{item.num}}{{item.unit}}</view>
+        <view>补货量:{{item.preNum}}{{item.unit}}</view>
+      </view>
+    </view>
+  </view>
+  <i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver}}"/>
+  <i-load-more tip="已经到底啦" wx:if="{{loadingOver}}" loading="{{ false }}" />
+</view>
+<i-drawer mode="right" visible="{{show}}" bind:close="close">
+  <view class='detail-wrapper'>
+    <view class='details'>
+      <view class='details-item'>
+        <view class='details-item-title'>仓库总数</view>
+        <view class='details-item-main'>{{detail.num}}{{detail.unit}}</view>
+      </view>
+      <view class='details-item'>
+        <view class='details-item-title'>预警值</view>
+        <view class='details-item-main'>{{detail.warnNum}}{{detail.unit}}</view>
+      </view>
+      <view wx:for="{{detail.wareHouse}}" wx:key="index" class="details-item {{item.warn ? 'on':''}}">
+        <view class='details-item-title'>{{item.wareHouse}}</view>
+        <view class='details-item-main'>{{item.num}}{{item.unit}}</view>
+      </view>
+    </view>
+  </view>
+</i-drawer>

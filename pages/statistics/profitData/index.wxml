@@ -1,2 +1,18 @@
-<!--pages/statistics/profitData/index.wxml-->
-<text>pages/statistics/profitData/index.wxml</text>
+<view class="profit">
+  <view class="profit-list" wx:for="{{list}}" wx:key="index">
+    <view class='order-header'>
+    <view class='order-time'><label class='iconfont icon-shijian'></label>{{item.ctime}}</view>{{item.customerName}}</view>
+    <view class='profit-main'>
+      <view class='profit-main-cell'>
+        <view class="title">销售金额</view>
+        <view class="main">{{item.realAmount}}</view>
+      </view>
+      <view class='profit-main-cell'>
+        <view class="title">销售利润</view>
+        <view class="main">{{item.profit}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+  <i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver}}"/>
+  <i-load-more tip="已经到底啦" wx:if="{{loadingOver}}" loading="{{ false }}" />
