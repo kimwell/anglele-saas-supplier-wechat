@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/common/storehouseOut/index",
     "pages/index/index",
     "pages/statistics/index/index",
     "pages/statistics/saleData/index",
@@ -9,7 +10,9 @@
     "pages/statistics/transactionData/index",
     "pages/statistics/profitData/index",
     "pages/user/setting/index",
-    "pages/user/modifyPassword/index"
+    "pages/user/modifyPassword/index",
+    "pages/common/order/index",
+    "pages/common/outDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "#fff",

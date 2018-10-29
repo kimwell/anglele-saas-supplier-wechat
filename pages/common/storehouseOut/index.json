@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-load-more": "../../../../components/load-more/index",
+    "i-action-sheet": "../../../../components/action-sheet/index"
+  },
+  "navigationBarTitleText": "出库管理"
+}

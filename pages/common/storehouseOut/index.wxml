@@ -1,0 +1,40 @@
+<view class="status-bar">
+  <view class="status-bar-inner">
+    <view wx:for="{{statusData}}" wx:key="index" class="status-bar-item {{statusIndex === item.value ? 'current':''}}" data-item="{{item}}" bindtap="switchTab">{{item.name}}</view>
+  </view>
+</view>
+<view class="wrapper">
+  <view class='item-list'>
+    <view class='list' wx:for="{{list}}" wx:key="index">
+      <view class='list-header'>
+        <view wx:if="{{item.status === 1}}" class="status {{'status-' +item.status }}">待确认</view>
+        <view wx:if="{{item.status === 2}}" class="status {{'status-' +item.status }}">已确认</view>
+        <view wx:if="{{item.status === 3}}" class="status {{'status-' +item.status }}">已出库</view>
+        <view wx:if="{{item.status === 4}}" class="status {{'status-' +item.status }}">已完成</view>
+        <view wx:if="{{item.status === 5}}" class="status {{'status-' +item.status }}">已取消</view>
+        <view>{{item.customer.name}}</view>
+      </view>
+      <view class='list-content'>
+        <view class='list-info'><label>联系人：</label>{{item.contactPeople}}</view>
+        <view class='list-info'><label>联系方式：</label>{{item.contactPhone}}</view>
+        <view class='list-info'><label>送货地址：</label>{{item.address}}</view>
+        <view class='list-info'><label>出库单号：</label>{{item.id}}</view>
+        <view class='list-info'><label>订单编号：</label>{{item.orderId}}</view>
+        <view class='list-info'><label>更新时间：</label>{{item.ctime}}</view>
+      </view>
+      <view class='list-footer'>
+        <view class='list-footer-btn' data-item="{{item}}" data-type="detail" bindtap="optionsItem">查看详情</view>
+        <view wx:if="{{item.status === 1}}" data-item="{{item}}" data-type="order" bindtap="optionsItem" class='list-footer-btn yellow'>确认订单</view>
+        <view wx:if="{{item.status === 2}}" data-item="{{item}}" data-type="out" bindtap="optionsItem" class='list-footer-btn yellow'>确认出库</view>
+      </view>
+    </view>
+  </view>
+</view>
+<i-action-sheet visible="{{ showAction }}" actions="{{ actions }}" show-cancel bind:cancel="handleCancel" bind:click="handleClickItem" mask-closable="{{ false }}">
+    <view slot="header" class='action-main'>
+        <view class='deliveryMan-header'>请选择配送员</view>
+        <view wx:for="{{deliveryMan}}" wx:key="index" class="deliveryMan {{deliveryManIndex === index ? 'selected':''}}" data-item="{{item}}" data-idx="{{index}}" bindtap="selectedDeliver">{{item.name}}</view>
+    </view>
+</i-action-sheet>
+<i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver && loading}}" />
+<i-load-more tip="已经到底啦" wx:if="{{loadingOver && list.length != 0}}" loading="{{ false }}" />

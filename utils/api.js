@@ -72,3 +72,43 @@ export const todayOrderSummary = () => {
 export const productSummary = (params) => {
   return fetchApi('sys/dataStatistics/productSummary', params).then(res => res.data)
 }
+
+
+
+/**
+ * 出库列表
+ * 
+ */
+
+export const wareHouseOutPage = (params) => {
+  return fetchApi('sys/wareHouseOut/page', params).then(res => res.data)
+}
+
+
+/**
+ * 出库确认
+ * 
+ */
+
+export const confirmOut = (params) => {
+  return fetchApi('sys/wareHouseOut/confirmOut', params).then(res => res.data)
+}
+
+
+/**
+ * 所有配送人
+ * 
+ */
+
+export const findAllDeliveryMan = (params) => {
+  return fetchApi('sys/deliveryMan/findAllDeliveryMan', params).then(res => res.data)
+}
+
+/**
+ * 货品出库
+ * 
+ */
+
+export const productOut = (params) => {
+  return fetchApi('sys/wareHouseOut/productOut', params).then(res => res.data)
+}
