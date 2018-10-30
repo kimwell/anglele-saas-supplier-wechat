@@ -5,7 +5,7 @@
     <view wx:if="{{order.order.status === 4}}" class="status {{'status-' +order.order.status }}">配送中</view>
     <view wx:if="{{order.order.status === 5}}" class="status {{'status-' +order.order.status }}">已完成</view>
     <view wx:if="{{order.order.status === 9}}" class="status {{'status-' +order.order.status }}">已取消</view>
-    出库详情</view>
+    订单详情</view>
   <view class='details-bd'>
     <view class='list-info'>
       <label>订单编号：</label>{{order.order.id}}</view>
@@ -21,6 +21,8 @@
       <label>是否有其他费用：</label>未回收完成</view>
     <view class='list-info' wx:if="{{order.order.hasFee === 2}}">
       <label>是否有其他费用：</label>回收完成</view>
+    <view class='list-info' wx:if="{{order.order.status === 5}}">
+      <label>配送员：</label>{{order.order.deliveryManName}}</view>
     <view class='list-info'>
       <label>最近操作时间：</label>{{order.order.ctime}}</view>
   </view>
@@ -92,5 +94,30 @@
       </view>
     </view>
     <view wx:if="{{order.order.orderFees.length === 0}}" class='no-cost'>无其他费用</view>
+  </view>
+</view>
+<view class="details" wx:if="{{order.order.status === 5}}">
+  <view class='details-hd'>历史其他费用明细</view>
+  <view class='details-bd'>
+    <view class='other-cost' wx:for="{{logList}}" wx:key="index">
+      <view class='other-cost-name'>{{item.feeName}}</view>
+      <view class='other-cost-info'>
+        <view class='list-info'>
+          <label>单价：</label>{{item.feeAmount}}</view>
+        <view class='list-info'>
+          <label>数量：</label>{{item.totalNum}}</view>
+        <view class='list-info'>
+          <label>回收数量：</label>{{item.totalAmount}}</view>
+        <view class='list-info'>
+          <label>回收金额：</label>{{item.changeNum}}</view>
+        <view class='list-info'>
+          <label>剩余金额：</label>{{item.changeAmount}}</view>
+        <view class='list-info'>
+          <label>备注：</label>{{item.remark}}</view>
+        <view class='list-info'>
+          <label>操作人：</label>{{item.updateUser}}</view>
+      </view>
+    </view>
+    <view wx:if="{{logList.length === 0}}" class='no-cost'>无历史其他费用明细</view>
   </view>
 </view>

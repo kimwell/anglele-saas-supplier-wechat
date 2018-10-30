@@ -21,7 +21,7 @@
     <view class='details'>
       <view class='details-item'>
         <view class='details-item-title'>仓库总数</view>
-        <view class='details-item-main'>{{detail.num}}{{detail.unit}}</view>
+        <view class='details-item-main'>{{detail.total}}{{detail.unit}}</view>
       </view>
       <view class='details-item'>
         <view class='details-item-title'>预警值</view>

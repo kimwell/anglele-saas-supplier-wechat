@@ -26,9 +26,8 @@
         </view>
         <view class="orders-info {{details.status === 4 ? 'success':''}}">
           <view class='productName'>{{item.productName}}</view>
+          <view class='category'>分类 :{{item.productCategory}}</view>
           <view>数量：<text class='true' wx:if="{{details.status === 4}}">{{item.realNum}}{{item.unit}}</text><text class='false'>{{item.num}}{{item.unit}}</text></view>
-          <view>单价：<text class='true' wx:if="{{details.status === 4}}">{{item.realPrice}}元/{{item.unit}}</text><text class='false'>{{item.price}}元/{{item.unit}}</text></view>
-          <view>金额：<text class='true' wx:if="{{details.status === 4}}">￥{{item.realTotalPrice}}</text><text class='false'>￥{{item.totalPrice}}</text></view>
         </view>
       </view>
     </view>

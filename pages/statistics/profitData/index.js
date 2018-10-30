@@ -46,6 +46,12 @@ Page({
       }
     })
   },
+  goRouter(e){
+    var item = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '/pages/common/orderDetail/index?id='+item.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

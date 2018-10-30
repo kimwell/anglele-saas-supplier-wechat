@@ -1,5 +1,5 @@
 <view class="profit">
-  <view class="profit-list" wx:for="{{list}}" wx:key="index">
+  <view class="profit-list" wx:for="{{list}}" wx:key="index" data-item="{{item}}" bindtap='goRouter'>
     <view class='order-header'>
     <view class='order-time'><label class='iconfont icon-shijian'></label>{{item.ctime}}</view>{{item.customerName}}</view>
     <view class='profit-main'>

@@ -39,8 +39,8 @@ page{
 }
 .order-details .orders{
   position: relative;
+  padding: 15rpx 0;
   padding-left: 180rpx;
-  margin: 15rpx 0;
   border-bottom: 1px solid rgba(0, 0, 0, .04)
 }
 .details .details-bd{
@@ -80,4 +80,7 @@ page{
 }
 .order-details .orders:last-child{
   border-bottom: 0
+}
+.category{
+  margin: 15rpx 0;
 }

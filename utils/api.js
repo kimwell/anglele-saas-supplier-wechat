@@ -161,3 +161,19 @@ export const findOneOrder = (params) => {
 export const orderCancel = (params) => {
   return fetchApi('sys/order/cancel', params).then(res => res.data)
 }
+
+/**
+ * 订单费用历史
+ * 
+ */
+export const orderFeeHistory = (params) => {
+  return fetchApi('sys/orderFee/history', params).then(res => res.data)
+}
+
+/**
+ * 修改密码
+ * 
+ */
+export const changePass = (params) => {
+  return fetchApi('api/changePass', params).then(res => res.data)
+}

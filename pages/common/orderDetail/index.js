@@ -6,15 +6,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    order: {}
+    order: {},
+    logList: []
   },
   getData(id){
     app.api.findOneOrder({ id: id }).then(res => {
       res.data.order.utime = app.utils.dateformat(res.data.order.newOrderDate, 'yyyy-MM-dd');
       res.data.order.ctime = app.utils.dateformat(res.data.order.updateTime);
+      if(res.data.order.status === 5){
+        this.getLog(res.data.order.id)
+      }
       if(res.code === 1000){
         this.setData({
           order: Object.assign({},res.data)
+        })
+      }
+    })
+  },
+  getLog(id){
+    app.api.orderFeeHistory({orderId:id}).then(res =>{
+      if(res.code === 1000){
+        this.setData({
+          logList:res.data
         })
       }
     })
