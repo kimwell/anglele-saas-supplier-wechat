@@ -11,7 +11,7 @@
         <view wx:if="{{item.status === 2}}" class="status {{'status-' +item.status }}">已确认</view>
         <view wx:if="{{item.status === 3}}" class="status {{'status-' +item.status }}">已出库</view>
         <view wx:if="{{item.status === 4}}" class="status {{'status-' +item.status }}">已完成</view>
-        <view wx:if="{{item.status === 5}}" class="status {{'status-' +item.status }}">已取消</view>
+        <view wx:if="{{item.status === 9}}" class="status {{'status-' +item.status }}">已取消</view>
         <view>{{item.customer.name}}</view>
       </view>
       <view class='list-content'>

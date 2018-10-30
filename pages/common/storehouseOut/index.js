@@ -36,7 +36,7 @@ Page({
       value: 4
     }, {
       name: '已取消',
-      value: 5
+      value: 9
     }],
     showAction: false,
     deliveryMan: [],
@@ -198,6 +198,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.status){
+      this.setData({
+        statusIndex: Number(options.status),
+        'pageApi.status': Number(options.status),
+      })
+    }
     this.getList();
     this.findAllDeliveryMan();
   },

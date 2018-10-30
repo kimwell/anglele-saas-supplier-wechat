@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/common/order/index",
     "pages/common/storehouseOut/index",
     "pages/index/index",
     "pages/statistics/index/index",
@@ -11,8 +12,8 @@
     "pages/statistics/profitData/index",
     "pages/user/setting/index",
     "pages/user/modifyPassword/index",
-    "pages/common/order/index",
-    "pages/common/outDetail/index"
+    "pages/common/outDetail/index",
+    "pages/common/orderDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "#fff",

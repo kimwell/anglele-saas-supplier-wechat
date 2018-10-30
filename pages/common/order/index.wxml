@@ -1,2 +1,70 @@
-<!--pages/common/order/index.wxml-->
-<text>pages/common/order/index.wxml</text>
+<view class="status-bar">
+  <view class="status-bar-inner">
+    <view wx:for="{{finishStatusData}}" wx:key="index" class="status-bar-item {{pageApi.finishStatus === item.value ? 'current':''}}" data-item="{{item}}" bindtap="switchTab">{{item.name}}</view>
+  </view>
+  <view class="sub-status-bar">
+    <view wx:for="{{subStatusData}}" wx:key="index" data-item="{{item}}" class="sub-status-item {{pageApi.status === item.value ? 'current':''}}" bindtap="switchSubTab">{{item.name}}</view>
+    <view class='search' bindtap='showSearch'>
+      <text class='iconfont icon-sousuo'></text>
+    </view>
+  </view>
+</view>
+
+<view class="wrapper">
+  <view class='item-list'>
+    <view class='list' wx:for="{{list}}" wx:key="index">
+      <view class='list-header'>
+        <view wx:if="{{item.status === 2}}" class="status {{'status-' +item.status }}">已确认</view>
+        <view wx:if="{{item.status === 3}}" class="status {{'status-' +item.status }}">配货中</view>
+        <view wx:if="{{item.status === 4}}" class="status {{'status-' +item.status }}">配送中</view>
+        <view wx:if="{{item.status === 5}}" class="status {{'status-' +item.status }}">已完成</view>
+        <view wx:if="{{item.status === 9}}" class="status {{'status-' +item.status }}">已取消</view>
+        <view>{{item.customerName}}</view>
+      </view>
+      <view class='list-content'>
+        <view class='list-info'>
+          <label>联系人：</label>{{item.contactPeople}}</view>
+        <view class='list-info'>
+          <label>联系方式：</label>{{item.contactPhone}}</view>
+        <view class='list-info'>
+          <label>送货地址：</label>{{item.address}}</view>
+        <view class='list-info'>
+          <label>订单编号：</label>{{item.id}}</view>
+        <view class='list-info'>
+          <label>下单时间：</label>{{item.ctime}}</view>
+      </view>
+      <view class='list-footer'>
+        <view class='list-footer-btn' data-item="{{item}}" bindtap="goDetail">查看详情</view>
+        <view wx:if="{{item.status === 2 || item.status === 3 || item.status === 4}}" data-item="{{item}}" data-type="order" bindtap="optionsItem" class='list-footer-btn yellow'>取消订单</view>
+      </view>
+    </view>
+  </view>
+</view>
+<i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver && loading}}" />
+<i-load-more tip="已经到底啦" wx:if="{{loadingOver && list.length != 0}}" loading="{{ false }}" />
+<i-drawer mode="right" visible="{{show}}" bind:close="close">
+  <view class='detail-wrapper'>
+    <view class='search-main'>
+      <view class='search-item'>
+        <view class='search-item-title'>下单日期</view>
+        <view class='search-item-main'>选择日期</view>
+      </view>
+      <view class='search-item'>
+        <view class='search-item-title'>客户名称</view>
+        <view class='search-item-main'>
+          <input class="search-input" value="{{pageApi.customerName}}" bindinput="inputBindName" placeholder-class="input-holder" placeholder="请输入" />
+        </view>
+      </view>
+      <view class='search-item'>
+        <view class='search-item-title'>订单编号</view>
+        <view class='search-item-main'>
+          <input class="search-input" value="{{pageApi.id}}" bindinput="inputBindId" placeholder-class="input-holder" placeholder="请输入" />
+        </view>
+      </view>
+    </view>
+    <view class='search-bottom'>
+      <view class='search-btn' bindtap='resetSearch'>重置</view>
+      <view class='search-btn true' bindtap='okSearch'>确定</view>
+    </view>
+  </view>
+</i-drawer>

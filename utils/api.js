@@ -86,6 +86,16 @@ export const wareHouseOutPage = (params) => {
 
 
 /**
+ * 出库单详情
+ * 
+ */
+
+export const wareHouseOutDetail = (params) => {
+  return fetchApi('sys/wareHouseOut/detail', params).then(res => res.data)
+}
+
+
+/**
  * 出库确认
  * 
  */
@@ -111,4 +121,35 @@ export const findAllDeliveryMan = (params) => {
 
 export const productOut = (params) => {
   return fetchApi('sys/wareHouseOut/productOut', params).then(res => res.data)
+}
+
+
+/**
+ * 小程序数据统计
+ * 
+ */
+
+export const wxOrderStatics = () => {
+  return fetchApi('sys/dataStatistics/wxOrderStatics').then(res => res.data)
+}
+
+
+
+/**
+ * 订单分页
+ * 
+ */
+
+export const orderPage = (params) => {
+  return fetchApi('sys/order/page', params).then(res => res.data)
+}
+
+
+/**
+ * 订单详情
+ * 
+ */
+
+export const findOneOrder = (params) => {
+  return fetchApi('sys/order/findOneOrder', params).then(res => res.data)
 }

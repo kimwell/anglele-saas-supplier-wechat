@@ -64,7 +64,7 @@ page{
 .list-header .status.status-4{
   color: #69D689;
 }
-.list-header .status.status-5{
+.list-header .status.status-9{
   color: #EC414D;
 }
 .list .list-content{
@@ -100,7 +100,7 @@ page{
   padding-bottom: 0;
 }
 .deliveryMan-header{
-  font-size: 32rpx;
+  font-size: 24rpx;
   color: #333;
 }
 .deliveryMan{

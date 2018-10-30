@@ -9,19 +9,19 @@
             <view class='desc'>今日下单总金额</view>
           </view>
           <view class='item'>
-            <image  class='index-img2' src="../../../static/images/index-img2.png"></image>
+            <image class='index-img2' src="../../../static/images/index-img2.png"></image>
             <view class='num'>￥{{todayItem.totalAmount !='' ? todayItem.totalAmount : 0}}</view>
             <view class='desc'>有效下单总金额</view>
           </view>
         </view>
         <view class='items'>
           <view class='item'>
-            <image  class='index-img3' src="../../static/images/index-img3.png"></image>
+            <image class='index-img3' src="../../static/images/index-img3.png"></image>
             <view class='num'>{{todayItem.customerNum}}</view>
             <view class='desc'>下单客户数</view>
           </view>
           <view class='item'>
-            <image  class='index-img4' src="../../static/images/index-img4.png"></image>
+            <image class='index-img4' src="../../static/images/index-img4.png"></image>
             <view class='num'>{{todayItem.orderNum}}</view>
             <view class='desc'>下单总数</view>
           </view>
@@ -29,7 +29,34 @@
       </view>
     </swiper-item>
     <swiper-item>
-      <view class='swiper-item'>sdfsdsdfsdfsdffsfd</view>
+      <view class='swiper-item'>
+        <view class='swiper-main'>
+          <view class='swiper-main-items'>
+            <view class='main-item-title'>出库单管理</view>
+            <view class='main-item-content items'>
+              <view class='item item1' data-status="1" bindtap='goOutRoute'>
+                <text class='iconfont icon-daiqueren'></text>
+                <view>待确认({{staticsItem.wareHouseCheck}})</view>
+              </view>
+              <view class='item item2' data-status="2" bindtap='goOutRoute'>
+                <text class='iconfont icon-wuliu'></text>
+                <view>待配送({{staticsItem.wareHouseDistribute}})</view>
+              </view>
+            </view>
+          </view>
+          <view class='swiper-main-items'>
+            <view class='main-item-title'>订单管理</view>
+            <view class='main-item-content items'>
+              <view class='item item3' bindtap='goOrderRoute'>
+                <text class='iconfont icon-weiwancheng'></text>
+                <view>待完成({{staticsItem.order}})</view>
+              </view>
+              <view class='item '>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
     </swiper-item>
   </swiper>
 </view>

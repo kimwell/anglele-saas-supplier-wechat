@@ -12,24 +12,10 @@ page{
   line-height: 80rpx;
   border-bottom: 1px solid rgba(0, 0, 0, .04)
 }
-.details-hd .status{
-  float: right;
+.details .details-bd{
+  padding: 20rpx 30rpx;
   font-size: 28rpx;
-}
-.details-hd .status.status-1{
-  color: #FFA53B;
-}
-.details-hd .status.status-2{
-  color: #1A9DEA;
-}
-.details-hd .status.status-3{
-  color: #48CFCF;
-}
-.details-hd .status.status-4{
-  color: #69D689;
-}
-.details-hd .status.status-9{
-  color: #EC414D;
+  color: #666;
 }
 .list-info{
   margin-bottom: 10rpx;
@@ -43,12 +29,6 @@ page{
   margin: 15rpx 0;
   border-bottom: 1px solid rgba(0, 0, 0, .04)
 }
-.details .details-bd{
-  padding: 20rpx 30rpx;
-  font-size: 28rpx;
-  color: #666;
-}
-
 .order-details .orders .orders-img{
   position: absolute;
   top: 0;
@@ -69,6 +49,28 @@ page{
   color: #333;
   font-size: 32rpx;
 }
+.details-hd .status.status-2 {
+  color: #ffa53b;
+}
+.details-hd .status{
+  font-size: 28rpx;
+  float: right;
+}
+.details-hd .status.status-3 {
+  color: #1a9dea;
+}
+
+.details-hd .status.status-4 {
+  color: #48cfcf;
+}
+
+.details-hd .status.status-5 {
+  color: #69d689;
+}
+
+.details-hd .status.status-9 {
+  color: #ec414d;
+}
 .orders-info.success .true{
   color: #FF5959;
   display: inline-block;
@@ -78,6 +80,23 @@ page{
   text-decoration: line-through;
   color: #999;
 }
-.order-details .orders:last-child{
+.other-cost{
+  padding: 20rpx 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .04);
+}
+.other-cost:last-child,.order-details .orders:last-child{
   border-bottom: 0
+}
+.other-cost .other-cost-name{
+  font-size: 32rpx;
+  color: #333;
+}
+.other-cost .other-cost-info{
+  padding-left: 40rpx;
+}
+.no-cost{
+  padding: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
 }
