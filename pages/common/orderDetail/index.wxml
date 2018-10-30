@@ -82,13 +82,11 @@
         <view class='list-info'>
           <label>数量：</label>{{item.totalNum}}</view>
         <view class='list-info'>
-          <label>回收数量：</label>{{item.totalAmount}}</view>
+          <label>金额：</label>￥{{item.feeTotalAmount}}</view>
         <view class='list-info'>
-          <label>回收金额：</label>{{item.changeNum}}</view>
+          <label>待回收数量：</label>{{item.currentNum}}</view>
         <view class='list-info'>
-          <label>剩余金额：</label>{{item.changeAmount}}</view>
-        <view class='list-info'>
-          <label>备注：</label>{{item.remark}}</view>
+          <label>待回收金额：</label>￥{{item.totalAmount}}</view>
         <view class='list-info'>
           <label>操作人：</label>{{item.updateUser}}</view>
       </view>
@@ -107,13 +105,15 @@
         <view class='list-info'>
           <label>数量：</label>{{item.totalNum}}</view>
         <view class='list-info'>
-          <label>回收数量：</label>{{item.totalAmount}}</view>
+          <label>金额：</label>￥{{item.feeTotalAmount}}</view>
         <view class='list-info'>
-          <label>回收金额：</label>{{item.changeNum}}</view>
+          <label>回收数量：</label>{{item.changeNum}}</view>
         <view class='list-info'>
-          <label>剩余金额：</label>{{item.changeAmount}}</view>
+          <label>回收金额：</label>￥{{item.changeAmount}}</view>
         <view class='list-info'>
-          <label>备注：</label>{{item.remark}}</view>
+          <label>剩余金额：</label>￥{{item.totalAmount}}</view>
+        <view class='list-info'>
+          <label>备注：</label>{{item.remark !='' ? item.remark:'暂无'}}</view>
         <view class='list-info'>
           <label>操作人：</label>{{item.updateUser}}</view>
       </view>
