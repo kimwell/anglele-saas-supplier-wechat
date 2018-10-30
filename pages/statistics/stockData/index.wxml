@@ -1,6 +1,14 @@
+<view class='stock-search'>
+  <view class='search-bar'>
+    <text class='iconfont icon-sousuo'></text>
+    <input class="search-input" value="{{pageApi.produtName}}" confirm-type="search" bindconfirm="searchList" placeholder-class='input-holder' placeholder='请输入产品名称'></input>
+    <text class='iconfont icon-shanchu' wx:if="{{pageApi.produtName != ''}}" bindtap='clearSearch'></text>
+  </view>
+</view>
 <view class="stock">
   <view class='stock-list' wx:for="{{list}}" wx:key="index">
-    <view class='product-name'><view class='detail-stock' bindtap='showDetail' data-item="{{item}}">查看库存</view>{{item.productName}}/{{item.categoryName}}</view>
+    <view class='product-name'>
+      <view class='detail-stock' bindtap='showDetail' data-item="{{item}}">查看库存</view>{{item.productName}}/{{item.categoryName}}</view>
     <view class='product-main'>
       <view class='product-img'>
         <image src="{{item.img != '' ? item.img : '../../../static/images/product-no-img.png'}}"></image>
@@ -13,8 +21,12 @@
       </view>
     </view>
   </view>
-  <i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver}}"/>
-  <i-load-more tip="已经到底啦" wx:if="{{loadingOver}}" loading="{{ false }}" />
+  <i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver}}" />
+  <i-load-more tip="已经到底啦" wx:if="{{loadingOver && list.length != 0}}" loading="{{ false }}" />
+  <view class='no-data' wx:if="{{loadingOver && list.length === 0 && !loading}}">
+    <image src="../../../static/images/no-data.png"></image>
+    <view>暂无库存报表</view>
+  </view>
 </view>
 <i-drawer mode="right" visible="{{show}}" bind:close="close">
   <view class='detail-wrapper'>

@@ -8,38 +8,45 @@ Page({
     todayItem: {},
     staticsItem: []
   },
-  getData(){
+  getData() {
     var that = this;
     app.api.todayOrderSummary().then(res => {
-      if(res.code === 1000){
+      if (res.code === 1000) {
         that.setData({
-          todayItem: Object.assign({},res.data)
+          todayItem: Object.assign({}, res.data)
         })
       }
     })
   },
   getStatics() {
     var that = this;
-    app.api.wxOrderStatics().then(res =>{
-      if(res.code === 1000){
+    app.api.wxOrderStatics().then(res => {
+      if (res.code === 1000) {
         that.setData({
           staticsItem: Object.assign({}, res.data)
         })
       }
     })
   },
-  goOutRoute(e){
+  goOutRoute(e) {
     var status = e.currentTarget.dataset.status;
     wx.navigateTo({
       url: '/pages/common/storehouseOut/index?status=' + status,
     })
   },
-  goOrderRoute(){
+  goOrderRoute() {
     wx.navigateTo({
       url: '/pages/common/order/index',
     })
   },
   onLoad: function () {
+    const getUser = wx.getStorageSync('user');
+    if (!getUser) {
+      wx.reLaunch({
+        url: '/pages/login/index',
+      })
+      return false;
+    }
     this.getData();
     this.getStatics();
   },
@@ -49,5 +56,6 @@ Page({
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
     this.getData();
+    this.getStatics();
   }
 })

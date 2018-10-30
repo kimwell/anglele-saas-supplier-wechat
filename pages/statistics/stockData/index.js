@@ -42,6 +42,26 @@ Page({
       show: false
     })
   },
+  searchList(e){
+    this.setData({
+      'pageApi.produtName': e.detail.value,
+      'pageApi.pageIndex': 0,
+      list: [],
+      loading: true,
+      show: false,
+    })
+    this.getList();
+  },
+  clearSearch(){
+    this.setData({
+      'pageApi.produtName': '',
+      'pageApi.pageIndex': 0,
+      list: [],
+      loading: true,
+      show: false,
+    })
+    this.getList();
+  },
   showDetail(e){
     this.setData({
       detail: Object.assign({},e.currentTarget.dataset.item),

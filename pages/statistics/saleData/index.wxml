@@ -1,9 +1,11 @@
 <view class='charts-wrap'>
-<view class='charts-wrap-head'>销售额(万元)</view>
-<canvas canvas-id="saleslineCanvas" disable-scroll="true" class="canvas"></canvas>
+<view class='charts-wrap-head'>销售额(元)</view>
+<view class="no-charts" wx:if="{{!list.length}}">暂无销售额</view>
+<canvas canvas-id="saleslineCanvas" wx:if="{{list.length}}" disable-scroll="true" class="canvas"></canvas>
 </view>
 
 <view class='charts-wrap'>
-<view class='charts-wrap-head'>销售利润(万元)</view>
-<canvas canvas-id="profitlineCanvas" disable-scroll="true" class="canvas"></canvas>
+<view class='charts-wrap-head'>销售利润(元)</view>
+<view class="no-charts" wx:if="{{!list.length}}">暂无利润</view>
+<canvas canvas-id="profitlineCanvas" wx:if="{{list.length}}" disable-scroll="true" class="canvas"></canvas>
 </view>

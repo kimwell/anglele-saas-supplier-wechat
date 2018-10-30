@@ -15,7 +15,6 @@ Page({
         if (res.confirm) {
           wx.removeStorageSync('authorization');
           wx.removeStorageSync('user');
-          wx.removeStorageSync('cartItem');
           wx.reLaunch({
             url: '/pages/login/index',
           })

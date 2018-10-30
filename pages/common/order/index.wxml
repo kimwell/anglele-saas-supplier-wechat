@@ -42,6 +42,10 @@
 </view>
 <i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver && loading}}" />
 <i-load-more tip="已经到底啦" wx:if="{{loadingOver && list.length != 0}}" loading="{{ false }}" />
+<view class='no-data' wx:if="{{loadingOver && list.length === 0 && !loading}}">
+  <image src="../../../static/images/no-data.png"></image>
+  <view>暂无订单</view>
+</view>
 <i-drawer mode="right" visible="{{show}}" bind:close="close">
   <view class='detail-wrapper'>
     <view class='search-main'>

@@ -156,8 +156,9 @@ Page({
     if (value != this.data.pageApi.finishStatus) {
       this.setData({
         'pageApi.finishStatus': value,
-        'pageApi.status': '',
+        'pageApi.status': ''
       })
+      this.clearSearch()
       this.clearList();
     }
     this.setSubData();
@@ -178,6 +179,7 @@ Page({
     if (value != this.data.pageApi.status) {
       this.setData({
         'pageApi.status': value,
+        'pageApi..customerName': ''
       })
       this.clearList();
     }

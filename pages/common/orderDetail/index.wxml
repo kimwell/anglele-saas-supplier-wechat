@@ -39,7 +39,7 @@
     <view class='list-info'>
       <label>送货地址：</label>{{order.order.address}}</view>
     <view class='list-info'>
-      <label>订单备注：</label>{{order.order.remark}}</view>
+      <label>订单备注：</label>{{order.order.remark != '' ? order.order.remark:'暂无'}}</view>
     <view class='list-info' wx:if="{{order.order.status === 9}}">
       <label>订单取消备注：</label>{{order.order.cancelReason}}</view>
   </view>

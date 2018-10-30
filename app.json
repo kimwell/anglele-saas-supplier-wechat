@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/statistics/stockData/index",
     "pages/common/order/index",
     "pages/common/storehouseOut/index",
     "pages/statistics/index/index",
     "pages/statistics/saleData/index",
     "pages/user/index/index",
-    "pages/statistics/stockData/index",
     "pages/login/index",
     "pages/statistics/transactionData/index",
     "pages/statistics/profitData/index",

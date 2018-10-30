@@ -187,3 +187,14 @@ page{
   line-height: 60rpx;
   text-align: center;
 }
+.no-data{
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+  padding-top: 150rpx;
+}
+.no-data image{
+  width: 343rpx;
+  height: 360rpx;
+  margin-bottom: 20rpx;
+}

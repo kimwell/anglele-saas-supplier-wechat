@@ -1,6 +1,7 @@
 const app = getApp();
 var wxCharts = require('../../../utils/wxcharts.js');
 var lineChart = null;
+var lineChart2 = null;
 Page({
 
   /**
@@ -25,8 +26,10 @@ Page({
         this.setData({
           list: res.data
         })
-        this.createLine();
-        this.createProfit();
+        if(res.data.length){
+          this.createLine();
+          this.createProfit();
+        }
       }
     })
   },
@@ -42,7 +45,7 @@ Page({
       data: data
     }
   },
-  createProfitData(){
+  createProfitData() {
     var categories = [];
     var data = [];
     this.data.list.forEach(el => {
@@ -54,7 +57,7 @@ Page({
       data: data
     }
   },
-  createProfit(){
+  createProfit() {
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
@@ -63,20 +66,22 @@ Page({
       console.error('getSystemInfoSync failed!');
     }
     var profitData = this.createProfitData();
-    lineChart = new wxCharts({
+    lineChart2 = new wxCharts({
       canvasId: 'profitlineCanvas',
       type: 'line',
       categories: profitData.categories,
-      animation: true,
+      animation: false,
       series: [{
         name: '销售利润',
-        data: profitData.data
+        data: profitData.data,
+        format: function (val, name) {  //点击显示的数据注释
+          return val + '元';
+        }
       }],
       xAxis: {
         disableGrid: true
       },
       yAxis: {
-        title: '成交金额 (万元)',
         min: 0
       },
       width: windowWidth,
@@ -88,7 +93,7 @@ Page({
       }
     });
   },
-  createLine(){
+  createLine() {
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
@@ -101,16 +106,18 @@ Page({
       canvasId: 'saleslineCanvas',
       type: 'line',
       categories: simulationData.categories,
-      animation: true,
+      animation: false,
       series: [{
         name: '销售额',
         data: simulationData.data,
+        format: function (val, name) {  //点击显示的数据注释
+          return val + '元';
+        }
       }],
       xAxis: {
         disableGrid: true
       },
       yAxis: {
-        title: '成交金额 (万元)',
         min: 0
       },
       width: windowWidth,
@@ -127,5 +134,9 @@ Page({
    */
   onLoad: function (e) {
     this.getData();
+  },
+  onUnload: function () {
+    lineChart = null;
+    lineChart2 = null;
   }
 })

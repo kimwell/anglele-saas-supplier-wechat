@@ -130,8 +130,9 @@ Page({
     if (value != this.data.statusIndex) {
       this.setData({
         statusIndex: value,
-        'pageApi.status': value,
+        'pageApi.status': value
       })
+      this.clearSearch();
       this.clearList();
     }
   },
@@ -156,8 +157,8 @@ Page({
       })
     } else if (types === 'order') {
       wx.showModal({
-        title: '确认订单',
-        content: '确认订单？',
+        title: '确认出库订单',
+        content: '确认出库订单？',
         success: function (res) {
           if (res.confirm) {
             that.confirmOut(item)
