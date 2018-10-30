@@ -49,7 +49,7 @@ Page({
   goRouter(e){
     var item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '/pages/common/orderDetail/index?id='+item.id,
+      url: '/pages/common/orderDetail/index?id='+item.id + '&isProfit='+ true,
     })
   },
   /**

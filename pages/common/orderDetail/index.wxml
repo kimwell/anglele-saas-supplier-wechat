@@ -13,8 +13,14 @@
       <label>下单日期：</label>{{order.order.utime}}</view>
     <view class='list-info'>
       <label>下单金额：</label>￥{{order.order.amount}}</view>
-    <view class='list-info' wx:if="{{order.order.status === 5}}">
+    <view class='list-info' wx:if="{{order.order.status === 5 && !isProfit}}">
       <label>实单金额：</label>￥{{order.order.realAmount}}</view>
+    <view class='list-info' wx:if="{{isProfit}}">
+      <label>销售金额：</label>￥{{order.order.realAmount}}</view>
+    <view class='list-info' wx:if="{{isProfit}}">
+      <label>销售成本：</label>￥{{order.order.cost}}</view>
+    <view class='list-info' wx:if="{{isProfit}}">
+      <label>销售利润：</label>￥{{order.order.profit}}</view>
     <view class='list-info' wx:if="{{order.order.hasFee === 0}}">
       <label>是否有其他费用：</label>无回收费用</view>
     <view class='list-info' wx:if="{{order.order.hasFee === 1}}">
@@ -78,7 +84,7 @@
       <view class='other-cost-name'>{{item.feeName}}</view>
       <view class='other-cost-info'>
         <view class='list-info'>
-          <label>单价：</label>{{item.feeAmount}}</view>
+          <label>单价：</label>￥{{item.feeAmount}}</view>
         <view class='list-info'>
           <label>数量：</label>{{item.totalNum}}</view>
         <view class='list-info'>
@@ -101,7 +107,7 @@
       <view class='other-cost-name'>{{item.feeName}}</view>
       <view class='other-cost-info'>
         <view class='list-info'>
-          <label>单价：</label>{{item.feeAmount}}</view>
+          <label>单价：</label>￥{{item.feeAmount}}</view>
         <view class='list-info'>
           <label>数量：</label>{{item.totalNum}}</view>
         <view class='list-info'>

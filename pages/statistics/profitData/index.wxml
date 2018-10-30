@@ -5,11 +5,11 @@
     <view class='profit-main'>
       <view class='profit-main-cell'>
         <view class="title">销售金额</view>
-        <view class="main">{{item.realAmount}}</view>
+        <view class="main">￥{{item.realAmount}}</view>
       </view>
       <view class='profit-main-cell'>
         <view class="title">销售利润</view>
-        <view class="main">{{item.profit}}</view>
+        <view class="main">￥{{item.profit}}</view>
       </view>
     </view>
   </view>
