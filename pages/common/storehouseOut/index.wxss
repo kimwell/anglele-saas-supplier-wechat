@@ -5,15 +5,17 @@ page{
   position: fixed;
   width: 100%;
   background-color: #fff;
-  z-index: 99;
+  z-index: 2;
   top: 0;
   left: 0;
 }
 .status-bar .status-bar-inner{
+  position: relative;
   display: flex;
   height: 80rpx;
   text-align: center;
   line-height: 80rpx;
+  padding-right: 80rpx;
 }
 .status-bar-item{
   position: relative;
@@ -31,6 +33,19 @@ page{
   left: 10%;
   width: 80%;
   border: 2rpx solid #48CFCF
+}
+.status-bar .status-bar-inner .search{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 80rpx;
+  text-align: center;
+}
+.status-bar .status-bar-inner .search .iconfont{
+  color: #666;
+  font-size: 36rpx;
 }
 .wrapper{
   padding-top: 80rpx;
@@ -111,4 +126,64 @@ page{
 }
 .deliveryMan.selected{
   color: #1A9DEA;
+}
+.detail-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 500rpx;
+  background-color: #fff;
+  z-index: 9999
+}
+.search-bottom{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 80rpx;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+}
+.search-bottom .search-btn{
+  flex: 1;
+  line-height: 80rpx;
+  text-align: center;
+  color: #48CFCF;
+  font-size: 32rpx;
+}
+.search-bottom .search-btn.true{
+  background-color: #48CFCF;
+  color: #fff;
+}
+.search-main{
+  padding: 40rpx;
+}
+.search-item{
+  margin-bottom: 30rpx;
+}
+.search-item .search-item-title{
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 25rpx;
+}
+.search-input{
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #F5F5F5;
+  border: 0;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.input-holder{
+  color: #666;
+}
+.search-item-main picker{
+  display: inline-block
+}
+.search-input.date{
+  width: 170rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
 }

@@ -38,6 +38,83 @@ Page({
     loading: true,
     show: false,
     loadingOver: false,
+    startTime: '',
+    endTime: '',
+    cancelApi: {
+      id: '',
+      cancelReason: ''
+    },
+    cancelShow: false
+  },
+  // 取消订单
+  optionsItem(e) {
+    this.setData({
+      'cancelApi.id': e.currentTarget.dataset.item.id,
+      cancelShow: true
+    })
+  },
+  reasonIpu(e) {
+    this.setData({
+      'cancelApi.cancelReason': e.detail.value
+    })
+  },
+  cancelOk(id) {
+    let that = this;
+    let params = JSON.parse(JSON.stringify(this.data.cancelApi));
+    if (params.cancelReason != '') {
+      app.api.orderCancel(params).then(res => {
+        if (res.code === 1000) {
+          this.setData({
+            cancelShow: !that.data.cancelShow,
+            'cancelApi.cancelReason': ''
+          })
+          this.clearList();
+          wx.showToast({
+            title: '取消成功',
+            icon: 'none'
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
+          })
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '请填写取消原因',
+        icon: 'none'
+      })
+    }
+  },
+  cancelClose(id) {
+    let that = this;
+    that.setData({
+      cancelShow: !that.data.cancelShow,
+      'cancelApi.cancelReason': ''
+    })
+  },
+  changeStart(e) {
+    let val = e.detail.value
+    this.setData({
+      startTime: val,
+      'pageApi.startCreateTime': this.tranData(val),
+    })
+  },
+  changeEnd(e) {
+    let val = e.detail.value
+    this.setData({
+      endTime: val,
+      'pageApi.endCreateTime': this.tranData(val),
+    })
+  },
+
+  //  年月日转毫秒时间戳
+  tranData(val) {
+    var date = val;
+    date = date.replace(/-/g, '/');
+    var time = new Date(date).getTime();
+    return time
   },
   //  搜索 输入客户名称
   inputBindName(e) {
@@ -45,27 +122,33 @@ Page({
       'pageApi.customerName': e.detail.value,
     })
   },
-  //  搜索 输入订单编号
+  //  搜索 输入出库单编号
   inputBindId(e) {
     this.setData({
       'pageApi.id': e.detail.value,
     })
   },
-  clearSearch(){
+  clearSearch() {
     this.setData({
       'pageApi.id': '',
+      'pageApi.orderId': '',
       'pageApi.customerName': '',
       'pageApi.startCreateTime': '',
-      'pageApi.endCreateTime': ''
+      'pageApi.endCreateTime': '',
+      startTime: '',
+      endTime: '',
     })
   },
   //  重置搜索
-  resetSearch(){
+  resetSearch() {
     this.clearSearch();
+    this.clearList();
+    this.close();
   },
   //  确认搜索
-  okSearch(){
-
+  okSearch() {
+    this.clearList();
+    this.close();
   },
   // 切换订单状态
   switchTab(e) {
@@ -79,18 +162,18 @@ Page({
     }
     this.setSubData();
   },
-  showSearch(){
+  showSearch() {
     this.setData({
       show: true
     })
   },
-  close(){
+  close() {
     this.setData({
       show: false
     })
   },
   //  切换订单子状态
-  switchSubTab(e){
+  switchSubTab(e) {
     var value = e.currentTarget.dataset.item.value;
     if (value != this.data.pageApi.status) {
       this.setData({
@@ -133,7 +216,7 @@ Page({
       }
     })
   },
-  goDetail(e){
+  goDetail(e) {
     var item = e.currentTarget.dataset.item;
     wx.navigateTo({
       url: '/pages/common/orderDetail/index?id=' + item.id,

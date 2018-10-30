@@ -1,5 +1,5 @@
 <view class="index-view">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="#23D5C0" current="1">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="#23D5C0" current="0">
     <swiper-item>
       <view class='swiper-item'>
         <view class='items'>
@@ -9,7 +9,7 @@
             <view class='desc'>今日下单总金额</view>
           </view>
           <view class='item'>
-            <image class='index-img2' src="../../../static/images/index-img2.png"></image>
+            <image class='index-img2' src="../../static/images/index-img2.png"></image>
             <view class='num'>￥{{todayItem.totalAmount !='' ? todayItem.totalAmount : 0}}</view>
             <view class='desc'>有效下单总金额</view>
           </view>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "i-drawer": "../../../components/drawer/index",
     "i-load-more": "../../../../components/load-more/index",
     "i-action-sheet": "../../../../components/action-sheet/index"
   },

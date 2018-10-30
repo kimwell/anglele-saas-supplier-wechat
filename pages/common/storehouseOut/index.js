@@ -48,7 +48,82 @@ Page({
     outApi: {
       id: '',
       deliveryManId: ''
-    }
+    },
+    searchShow: false,
+    startTime: '',
+    endTime: '',
+  },
+  showSearch(){
+    this.setData({
+      searchShow: true
+    })
+  },
+  changeStart(e) {
+    let val = e.detail.value
+    this.setData({
+      startTime: val,
+      'pageApi.updateTimeBegin': this.tranData(val),
+    })
+  },
+  changeEnd(e) {
+    let val = e.detail.value
+    this.setData({
+      endTime: val,
+      'pageApi.updateTimeEnd': this.tranData(val),
+    })
+  },
+
+  //  年月日转毫秒时间戳
+  tranData(val) {
+    var date = val;
+    date = date.replace(/-/g, '/');
+    var time = new Date(date).getTime();
+    return time
+  },
+  //  搜索 输入客户名称
+  inputBindName(e) {
+    this.setData({
+      'pageApi.customerName': e.detail.value,
+    })
+  },
+  //  搜索 输入出库单号
+  inputBindId(e) {
+    this.setData({
+      'pageApi.id': e.detail.value,
+    })
+  },
+  //  搜索 输入订单编号
+  inputBindOrderId(e) {
+    this.setData({
+      'pageApi.orderId': e.detail.value,
+    })
+  },
+  clearSearch() {
+    this.setData({
+      'pageApi.id': '',
+      'pageApi.orderId': '',
+      'pageApi.customerName': '',
+      'pageApi.updateTimeBegin': '',
+      'pageApi.updateTimeEnd': '',
+      startTime: '',
+      endTime: '',
+    })
+  },
+  //  重置搜索
+  resetSearch() {
+    this.clearSearch();
+    this.clearList();
+    this.close();
+  },
+  close() {
+    this.setData({
+      searchShow: false
+    })
+  },
+  //  确认搜索
+  okSearch() {
+    this.clearList();
+    this.close();
   },
   switchTab(e) {
     var value = e.currentTarget.dataset.item.value
@@ -198,7 +273,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.status){
+    if (options.status) {
       this.setData({
         statusIndex: Number(options.status),
         'pageApi.status': Number(options.status),

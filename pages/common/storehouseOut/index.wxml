@@ -1,6 +1,9 @@
 <view class="status-bar">
   <view class="status-bar-inner">
     <view wx:for="{{statusData}}" wx:key="index" class="status-bar-item {{statusIndex === item.value ? 'current':''}}" data-item="{{item}}" bindtap="switchTab">{{item.name}}</view>
+     <view class='search' bindtap='showSearch'>
+      <text class='iconfont icon-sousuo'></text>
+    </view>
   </view>
 </view>
 <view class="wrapper">
@@ -38,3 +41,43 @@
 </i-action-sheet>
 <i-load-more loading="{{ loading }}" tip="正在加载" wx:if="{{!loadingOver && loading}}" />
 <i-load-more tip="已经到底啦" wx:if="{{loadingOver && list.length != 0}}" loading="{{ false }}" />
+
+<i-drawer mode="right" visible="{{searchShow}}" bind:close="close">
+  <view class='detail-wrapper'>
+    <view class='search-main'>
+      <view class='search-item'>
+        <view class='search-item-title'>最近更新时间</view>
+        <view class='search-item-main'>
+          <picker mode="date" class='time' value="{{startTime}}" start="1990-01-01" bindchange="changeStart">
+            <view class='search-input date'>{{startTime != ''? startTime :'开始时间'}}</view>
+          </picker>
+          <picker mode="date" class='time' value="{{endTime}}" start="1990-01-01" bindchange="changeEnd">
+            <view class='search-input date'>{{endTime != ''? endTime :'结束时间'}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class='search-item'>
+        <view class='search-item-title'>客户名称</view>
+        <view class='search-item-main'>
+          <input class="search-input" value="{{pageApi.customerName}}" bindinput="inputBindName" placeholder-class="input-holder" placeholder="请输入" />
+        </view>
+      </view>
+      <view class='search-item'>
+        <view class='search-item-title'>出库单号</view>
+        <view class='search-item-main'>
+          <input class="search-input" value="{{pageApi.id}}" bindinput="inputBindId" placeholder-class="input-holder" placeholder="请输入" />
+        </view>
+      </view>
+      <view class='search-item'>
+        <view class='search-item-title'>订单编号</view>
+        <view class='search-item-main'>
+          <input class="search-input" value="{{pageApi.orderId}}" bindinput="inputBindOrderId" placeholder-class="input-holder" placeholder="请输入" />
+        </view>
+      </view>
+    </view>
+    <view class='search-bottom'>
+      <view class='search-btn' bindtap='resetSearch'>重置</view>
+      <view class='search-btn true' bindtap='okSearch'>确定</view>
+    </view>
+  </view>
+</i-drawer>

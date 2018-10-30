@@ -153,3 +153,11 @@ export const orderPage = (params) => {
 export const findOneOrder = (params) => {
   return fetchApi('sys/order/findOneOrder', params).then(res => res.data)
 }
+
+/**
+ * 取消订单
+ * 
+ */
+export const orderCancel = (params) => {
+  return fetchApi('sys/order/cancel', params).then(res => res.data)
+}

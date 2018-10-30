@@ -202,3 +202,31 @@ page {
 .input-holder{
   color: #666;
 }
+.search-item-main picker{
+  display: inline-block
+}
+.search-input.date{
+  width: 170rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.ipt-view{
+  padding: 20rpx 15px;
+}
+.ipt{
+  border: 1px solid #e6e6e6;
+  font-size: 26rpx;
+  color: #333;
+  padding: 10rpx;
+  text-align: left;
+  border-radius: 3rpx;
+  height: 130rpx;
+  width: 230px;
+}
+.pipt{
+  text-align: left;
+  font-size: 26rpx;
+  color: #666;
+}

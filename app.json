@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/common/order/index",
     "pages/common/storehouseOut/index",
-    "pages/index/index",
     "pages/statistics/index/index",
     "pages/statistics/saleData/index",
     "pages/user/index/index",
