@@ -56,7 +56,7 @@
     <view class='order-details'>
       <view class='orders' wx:for="{{order.orderItem}}" wx:key="index">
         <view class='orders-img'>
-          <image src="{{item.productImg != '' ? item.productImg:'../../static/images/product-no-img.png'}}"></image>
+          <image src="{{item.productImg != '' ? item.productImg:'../../../static/images/product-no-img.png'}}"></image>
         </view>
         <view class="orders-info {{order.order.status === 5 ? 'success':''}}">
           <view class='productName'>{{item.productName}}</view>
