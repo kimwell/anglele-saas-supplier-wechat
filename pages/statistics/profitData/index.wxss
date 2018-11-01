@@ -1,6 +1,55 @@
 page {
   background-color: #f5f5f5;
 }
+.profit-search{
+  background: #fff;
+  padding: 30rpx;
+}
+.charts-search {
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  margin-bottom: 15rpx;
+}
+
+.charts-search .charts-search-item {
+  flex: 1;
+  padding: 0 10rpx;
+  width: 334rpx;
+}
+.charts-search .charts-search-item.auto{
+  width: auto;
+}
+.search-item-lable {
+  margin-bottom: 10rpx;
+}
+
+.search-input {
+  padding: 0 10rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+}
+.input-holder{
+  color: #666;
+}
+.search-btn{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 120rpx;
+  text-align: center;
+  background: #48CFCF;
+  color: #fff;
+  font-size: 26rpx;
+  margin: 52rpx 10rpx 0;
+  border-radius: 6rpx;
+}
 
 .profit {
   padding: 0 40rpx;

@@ -21,7 +21,62 @@ Page({
     list: [],
     loading: true,
     show: false,
-    loadingOver: false 
+    loadingOver: false,
+    startTime: '',
+    endTime: ''
+  },
+  inputBindCustomer() {
+
+  },
+  changeStart(e) {
+    let val = e.detail.value
+    this.setData({
+      startTime: val,
+      'pageApi.createOrderTimeBegin': this.tranData(val),
+    })
+  },
+  changeEnd(e) {
+    let val = e.detail.value
+    this.setData({
+      endTime: val,
+      'pageApi.createOrderTimeEnd': this.tranData(val),
+    })
+  },
+  //  年月日转毫秒时间戳
+  tranData(val) {
+    var date = val;
+    date = date.replace(/-/g, '/');
+    var time = new Date(date).getTime();
+    return time
+  },
+  //  输入客户名称
+  inputBindCustomer(e) {
+    this.setData({
+      'pageApi.customerName': e.detail.value
+    })
+  },
+  searchs() {
+    this.setData({
+      'pageApi.pageIndex': 0,
+      list: [],
+      loading: true,
+      loadingOver: false
+    })
+    this.getList();
+  },
+  clearSearchs() {
+    this.setData({
+      'pageApi.createOrderTimeBegin': '',
+      'pageApi.createOrderTimeEnd': '',
+      'pageApi.customerName': '',
+      'pageApi.pageIndex': 0,
+      startTime: '',
+      endTime: '',
+      list: [],
+      loading: true,
+      loadingOver: false
+    })
+    this.getList();
   },
   getList() {
     let that = this;
@@ -32,7 +87,7 @@ Page({
     app.api.orderProfit(this.data.pageApi).then(res => {
       if (res.code === 1000) {
         res.data.page.data.forEach(el => {
-          el.ctime = app.utils.dateformat(el.newOrderDate,'yyyy-MM-dd');
+          el.ctime = app.utils.dateformat(el.newOrderDate, 'yyyy-MM-dd');
         })
         if (res.data.page.data.length < that.data.pageApi.pageSize) {
           that.setData({
@@ -46,10 +101,10 @@ Page({
       }
     })
   },
-  goRouter(e){
+  goRouter(e) {
     var item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '/pages/common/orderDetail/index?id='+item.id + '&isProfit='+ true,
+      url: '/pages/common/orderDetail/index?id=' + item.id + '&isProfit=' + true,
     })
   },
   /**

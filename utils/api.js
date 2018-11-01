@@ -177,3 +177,11 @@ export const orderFeeHistory = (params) => {
 export const changePass = (params) => {
   return fetchApi('api/changePass', params).then(res => res.data)
 }
+
+/**
+ * 所有仓库
+ * 
+ */
+export const findWareHouseList = () => {
+  return fetchApi('sys/warehouse/findWareHouse').then(res => res.data)
+}

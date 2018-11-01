@@ -1,11 +1,52 @@
 <view class='charts-wrap'>
-<view class='charts-wrap-head'>销售额(元)</view>
-<view class="no-charts" wx:if="{{!list.length}}">暂无销售额</view>
-<canvas canvas-id="saleslineCanvas" wx:if="{{list.length}}" disable-scroll="true" class="canvas"></canvas>
+  <view class='charts-search'>
+    <view class='charts-search-item'>
+      <view class='search-item-lable'>客户名称:</view>
+      <input class="search-input" value="{{pageApi.customerName}}" bindinput="inputBindCustomer" placeholder-class="input-holder" placeholder="请输入" />
+    </view>
+    <view class='charts-search-item'>
+      <view class='search-item-lable'>产品名称:</view>
+      <input class="search-input" value="{{pageApi.productName}}" bindinput="inputBindProduct" placeholder-class="input-holder" placeholder="请输入" />
+    </view>
+  </view>
+  <view class='charts-search'>
+    <view class='charts-search-item'>
+      <view class='search-item-lable'>选择开始日期:</view>
+      <picker mode="date" class='time' value="{{startTime}}" start="1990-01-01" bindchange="changeStart">
+        <view class='search-input date'>{{startTime != ''? startTime :'开始时间'}}</view>
+      </picker>
+    </view>
+    <view class='charts-search-item'>
+      <view class='search-item-lable'>选择结束日期:</view>
+      <picker mode="date" class='time' value="{{endTime}}" start="1990-01-01" bindchange="changeEnd">
+        <view class='search-input date'>{{endTime != ''? endTime :'结束时间'}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='charts-search'>
+    <view class='charts-search-item'>
+      <view class='search-item-lable'>仓库:</view>
+      <picker mode="selector" bindchange="bindPickerChange" value="{{storeIndex}}" range="{{storeHouse}}" range-key="name">
+        <view class='search-input'>
+          {{storeHouseName != '' ? storeHouseName : '请选择仓库'}}
+        </view>
+      </picker>
+    </view>
+    <view class='charts-search-item'>
+      <view class='search-btn' bindtap='searchs'>搜索</view>
+      <view class='search-btn' bindtap='clearSearchs'>重置</view>
+    </view>
+  </view>
 </view>
 
 <view class='charts-wrap'>
-<view class='charts-wrap-head'>销售利润(元)</view>
-<view class="no-charts" wx:if="{{!list.length}}">暂无利润</view>
-<canvas canvas-id="profitlineCanvas" wx:if="{{list.length}}" disable-scroll="true" class="canvas"></canvas>
+  <view class='charts-wrap-head'>销售额(元)</view>
+  <view class="no-charts" wx:if="{{!list.length}}">暂无销售额</view>
+  <canvas canvas-id="saleslineCanvas" wx:if="{{list.length}}" disable-scroll="true" class="canvas"></canvas>
+</view>
+
+<view class='charts-wrap'>
+  <view class='charts-wrap-head'>销售利润(元)</view>
+  <view class="no-charts" wx:if="{{!list.length}}">暂无利润</view>
+  <canvas canvas-id="profitlineCanvas" wx:if="{{list.length}}" disable-scroll="true" class="canvas"></canvas>
 </view>

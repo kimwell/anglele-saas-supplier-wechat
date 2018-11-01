@@ -15,7 +15,78 @@ Page({
       productName: '',
       wareHouseId: ''
     },
-    list: []
+    list: [],
+    storeHouse: [],
+    storeIndex: 0,
+    storeHouseName: '',
+    startTime: '',
+    endTime: ''
+  },
+  changeStart(e) {
+    let val = e.detail.value
+    this.setData({
+      startTime: val,
+      'pageApi.startTime': this.tranData(val),
+    })
+  },
+  changeEnd(e) {
+    let val = e.detail.value
+    this.setData({
+      endTime: val,
+      'pageApi.endTime': this.tranData(val),
+    })
+  },
+  //  年月日转毫秒时间戳
+  tranData(val) {
+    var date = val;
+    date = date.replace(/-/g, '/');
+    var time = new Date(date).getTime();
+    return time
+  },
+  bindPickerChange(e) {
+    var idx = e.detail.value;
+    this.setData({
+      'pageApi.wareHouseId': this.data.storeHouse[idx].id,
+      storeHouseName: this.data.storeHouse[idx].name
+    })
+  },
+  //  输入客户名称
+  inputBindCustomer(e) {
+    this.setData({
+      'pageApi.customerName': e.detail.value
+    })
+  },
+  //  输入产品名称
+  inputBindProduct(e) {
+    this.setData({
+      'pageApi.productName': e.detail.value
+    })
+  },
+  getStoreHouse() {
+    app.api.findWareHouseList().then(res => {
+      if (res.code === 1000) {
+        this.setData({
+          storeHouse: res.data
+        })
+      }
+    })
+  },
+  searchs() {
+    this.getData();
+  },
+  clearSearchs() {
+    this.setData({
+      'pageApi.startTime': '',
+      'pageApi.endTime': '',
+      'pageApi.customerName': '',
+      'pageApi.productName': '',
+      'pageApi.wareHouseId': '',
+      storeIndex: 0,
+      storeHouseName: '',
+      startTime: '',
+      endTime: ''
+    })
+    this.getData();
   },
   getData() {
     app.api.productSummary(this.data.pageApi).then(res => {
@@ -26,7 +97,7 @@ Page({
         this.setData({
           list: res.data
         })
-        if(res.data.length){
+        if (res.data.length) {
           this.createLine();
           this.createProfit();
         }
@@ -134,6 +205,7 @@ Page({
    */
   onLoad: function (e) {
     this.getData();
+    this.getStoreHouse();
   },
   onUnload: function () {
     lineChart = null;

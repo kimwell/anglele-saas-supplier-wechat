@@ -179,7 +179,12 @@ Page({
     if (value != this.data.pageApi.status) {
       this.setData({
         'pageApi.status': value,
-        'pageApi..customerName': ''
+        'pageApi.customerName': '',
+        'pageApi.startCreateTime': '',
+        'pageApi.endCreateTime': '',
+        'pageApi.id': '',
+        startTime: '',
+        endTime: '',
       })
       this.clearList();
     }

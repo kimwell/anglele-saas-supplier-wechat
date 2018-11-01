@@ -5,12 +5,12 @@
         <view class='items'>
           <view class='item'>
             <image class='index-img1' src="../../static/images/index-img1.png"></image>
-            <view class='num'>￥{{todayItem.amount !='' ? todayItem.amount : 0}}</view>
+            <view class='num'>￥{{todayItem.totalAmount !='' ? todayItem.totalAmount : 0}}</view>
             <view class='desc'>今日下单总金额</view>
           </view>
           <view class='item'>
             <image class='index-img2' src="../../static/images/index-img2.png"></image>
-            <view class='num'>￥{{todayItem.totalAmount !='' ? todayItem.totalAmount : 0}}</view>
+            <view class='num'>￥{{todayItem.amount !='' ? todayItem.amount : 0}}</view>
             <view class='desc'>有效下单总金额</view>
           </view>
         </view>
