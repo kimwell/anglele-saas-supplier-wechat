@@ -1,9 +1,10 @@
 <view class="status-bar">
   <view class="status-bar-inner">
-    <view wx:for="{{statusData}}" wx:key="index" class="status-bar-item {{statusIndex === item.value ? 'current':''}}" data-item="{{item}}" bindtap="switchTab">{{item.name}}</view>
+    <view wx:for="{{statusData}}" wx:key="index" class="status-bar-item {{statusIndex === item.value ? 'current':''}}" data-idx="{{index}}" data-item="{{item}}" bindtap="switchTab">{{item.name}}</view>
      <view class='search' bindtap='showSearch'>
       <text class='iconfont icon-sousuo'></text>
     </view>
+    <view class="status-bar-inner-line" style="left: {{left +'rpx'}}"></view>
   </view>
 </view>
 <view class="wrapper">

@@ -52,6 +52,7 @@ Page({
     searchShow: false,
     startTime: '',
     endTime: '',
+    left: 27
   },
   showSearch(){
     this.setData({
@@ -126,11 +127,13 @@ Page({
     this.close();
   },
   switchTab(e) {
-    var value = e.currentTarget.dataset.item.value
+    var value = e.currentTarget.dataset.item.value;
+    var idx = e.currentTarget.dataset.idx;
     if (value != this.data.statusIndex) {
       this.setData({
         statusIndex: value,
-        'pageApi.status': value
+        'pageApi.status': value,
+        left: idx === 0 ? 27 : (idx * 134 + 27).toFixed(2)
       })
       this.clearSearch();
       this.clearList();
