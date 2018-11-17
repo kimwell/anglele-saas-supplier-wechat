@@ -280,7 +280,8 @@ Page({
     if (options.status) {
       this.setData({
         statusIndex: Number(options.status),
-        'pageApi.status': Number(options.status),
+        'pageApi.status': Number(options.status), 
+        left: options.status === 0 ? 27 : ((options.status - 1) * 134 + 27).toFixed(2)
       })
     }
     this.getList();

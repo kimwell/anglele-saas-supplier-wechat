@@ -29,7 +29,7 @@
       <view class='list-footer'>
         <view class='list-footer-btn' data-item="{{item}}" data-type="detail" bindtap="optionsItem">查看详情</view>
         <view wx:if="{{item.status === 1}}" data-item="{{item}}" data-type="order" bindtap="optionsItem" class='list-footer-btn yellow'>确认订单</view>
-        <view wx:if="{{item.status === 2}}" data-item="{{item}}" data-type="out" bindtap="optionsItem" class='list-footer-btn yellow'>确认出库</view>
+        <!-- <view wx:if="{{item.status === 2}}" data-item="{{item}}" data-type="out" bindtap="optionsItem" class='list-footer-btn yellow'>确认出库</view> -->
       </view>
     </view>
   </view>
